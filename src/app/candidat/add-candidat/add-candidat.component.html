@@ -1,0 +1,64 @@
+<br>
+
+<span class="p-float-label">
+    <input  class="space" [(ngModel)]="candidat.id" type="text" pInputText required #code="ngModel">
+    <label>Code candidat</label>
+  <p-message severity="error" *ngIf="code.invalid &&(code.touched || code.dirty)" [text]="code.errors['required']?
+'Code requis': '' "></p-message>
+</span>
+<span class="p-float-label">
+    <input  class="space" [(ngModel)]="candidat.nom" type="text" pInputText required #nom="ngModel">
+    <label>Nom</label>
+  <p-message severity="error" *ngIf="nom.invalid &&(nom.touched || nom.dirty)" [text]="nom.errors['required']?
+'Nom requis': '' "></p-message>
+</span>
+
+<span class="p-float-label">
+    <input  class="space" [(ngModel)]="candidat.prenom" type="text" pInputText required #prenom="ngModel">
+    <label >Prenom</label>
+  <p-message severity="error" *ngIf="prenom.invalid &&(prenom.touched || prenom.dirty)" [text]="prenom.errors['required']?
+'prenom requis': '' "></p-message>
+</span>
+<span class="p-float-label">
+    <input  class="space" [(ngModel)]="candidat.dateNaissanc" type="text" pInputText datafld required #dateNaissanc="ngModel">
+    <label >Date</label>
+  <p-message severity="error" *ngIf="dateNaissanc.invalid &&(dateNaissanc.touched || dateNaissanc.dirty)" [text]="dateNaissanc.errors['required']?
+'date requis': '' "></p-message>
+</span>
+
+<span class="p-float-label">
+    <input  class="space" [(ngModel)]="candidat.age" type="text" pInputText required  #age="ngModel">
+    <label >Age</label>
+  <p-message severity="error" *ngIf="age.invalid &&(age.touched || age.dirty)" [text]="age.errors['required']?
+'age requis': '' "></p-message>
+</span>
+<span class="p-float-label">
+    <input  class="space" [(ngModel)]="candidat.job" type="text" pInputText required  #job="ngModel">
+    <label >Job </label>
+  <p-message severity="error" *ngIf="job.invalid &&(job.touched || job.dirty)" [text]="job.errors['required']?
+'Job requis': '' "></p-message>
+</span>
+<span class="p-float-label">
+    <input  class="space" [(ngModel)]="candidat.email" pKeyFilter="email" type="text" pInputText email required  #email="ngModel">
+    <label >Adresse mail</label>
+  <p-message severity="error" *ngIf="email.invalid &&(email.touched || email.dirty)" [text]="email.errors['required']?
+'email requis':email.errors['email']? 'Email invalid' :  '' "></p-message>
+</span>
+
+<span class="p-float-label">
+    <input  class="space" [(ngModel)]="candidat.twitter" type="text" pInputText required  #twitter="ngModel" >
+    <label >Twitter </label>
+  <p-message severity="error" *ngIf="twitter.invalid &&(twitter.touched || twitter.dirty)" [text]="twitter.errors['required']?
+'twitter requis': ''"></p-message>
+</span>
+<span class="p-float-label">
+    <input  class="space" [(ngModel)]="candidat.facebook" type="text" pInputText  #facebook="ngModel">
+    <label >Facebook </label>
+</span>
+  <button *ngIf="visibel" pButton type="button" label="Ajouter " class="p-button-primary btnAdd" icon="pi pi-plus" (click)="ajouter()"
+  [disabled]="nom.invalid || prenom.invalid || email.invalid || job.invalid || age.invalid || code.invalid"></button>
+
+<button *ngIf="!visibel" pButton type="button" label="Modifier" class="p-button-warning btnAdd" icon="pi pi-plus" (click)="modifier()"
+        [disabled]="nom.invalid || prenom.invalid || email.invalid || job.invalid || age.invalid || code.invalid"></button>
+
+

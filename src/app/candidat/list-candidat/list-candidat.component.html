@@ -1,0 +1,134 @@
+<br>
+<br>
+<button pButton label="LogOut" icon="pi pi-power-off" class="ui-button-danger" (click)="decx()" style="top: 10px ; float: right ; position: fixed ;
+margin-left: 92%" ></button>
+
+<div class="flex">
+<p-card header="Candidat CV" subheader="Digital cv" [style]="{width: '200px'}" styleClass="p-card-shadow">
+  <p-header>
+    <img alt="Card" src="https://www.flaticon.com/svg/static/icons/svg/1268/1268491.svg">
+  </p-header>
+  <ng-template pTemplate="footer">
+    <p-button label="Go To" icon="pi pi-arrow-right" routerLink="/candidat/all" ></p-button>
+  </ng-template>
+</p-card>
+
+
+<p-card header="Election Lists" subheader="All lists" [style]="{width: '200px'}" styleClass="p-card-shadow">
+  <p-header>
+    <img alt="Card" src="https://cdn2.iconfinder.com/data/icons/thin-line-color-1/21/11-512.png">
+  </p-header>
+  <ng-template pTemplate="footer">
+    <p-button label="Go To" icon="pi pi-arrow-right" (click)="showBasicDialog()" ></p-button>
+  </ng-template>
+</p-card>
+
+  <p-card header="Authentification" subheader="All lists" [style]="{width: '200px'}" styleClass="p-card-shadow">
+    <p-header>
+      <img alt="Card" src="https://cdn1.iconfinder.com/data/icons/30px-enter-login-blue-line/30/26_login-access-member-key-user-password-512.png">
+    </p-header>
+    <ng-template pTemplate="footer">
+      <p-button label="Go To" icon="pi pi-arrow-right" ></p-button>
+    </ng-template>
+  </p-card>
+</div>
+<br>
+<hr>
+<br>
+<button pButton type="button" label="New " class="p-button-primary btnAdd" icon="pi pi-plus" routerLink="/candidat/candidat-new" ></button>
+<br>
+<br><!-- yra fiha lez9a tab-->
+
+<p-table [value]="candidat">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Nom</th>
+      <th>Prenom</th>
+      <th>Date de Naissance</th>
+      <th>Age</th>
+      <th>Job Title</th>
+      <th>Email</th>
+      <th>Image</th>
+      <th>Facebook</th>
+      <th>Twitter</th>
+      <th>position</th>
+      <th>Score</th>
+      <th>Cv</th>
+      <th>Parti</th>
+      <th colspan="2" >Operation</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-candidat>
+    <tr>
+      <td>{{candidat.nom}}</td>
+      <td>{{candidat.prenom}}</td>
+      <td>{{candidat.dateNaissance | date: 'yyyy'}}</td>
+      <td>{{candidat.age}}</td>
+      <td>{{candidat.job}}</td>
+      <td>{{candidat.email}}</td>
+      <td>{{candidat.photo}}</td>
+      <td>{{candidat.facebook}}</td>
+      <td>{{candidat.twitter}}</td>
+      <td>{{candidat.position}}</td>
+      <td>{{candidat.score}}</td>
+      <td>
+        <button pButton type="button" icon="pi pi-eye"  (click)=" editerCv(candidat)" iconPos="left"  routerLink="/candidat/cv"></button>
+      </td>
+      <td>
+        <button pButton type="button" icon="pi pi-eye" iconPos="left" routerLink="/candidat/cv"></button>
+      </td>
+      <td>
+        <button pButton  icon="pi pi-trash" class="p-button-danger" (click)="supprimer(candidat)" ></button>
+      </td>
+      <td>
+        <button pButton  icon="pi pi-pencil" class="p-button-warning" (click)="editer(candidat)" ></button>
+      </td>
+
+    </tr>
+  </ng-template>
+</p-table>
+<br>
+<br>
+<p-paginator [rows]="10" [totalRecords]="120" [rowsPerPageOptions]="[10,20,30]"></p-paginator>
+
+<p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>
+
+<p-dialog  header="Lists" [(visible)]="displayBasic" [style]="{width: '50vw' }" [baseZIndex]="10000">
+
+  <p-button label="Liste partisienne" icon="pi pi-sitemap" (click)="showBasicDialog1()" class="p-button-outlined"></p-button>
+  <p-button label="Liste coalision" icon="pi pi-users" (click)="showBasicDialog2()" class="p-button-outlined" style="margin-left: 50px"></p-button>
+  <p-button label="Liste independante" icon="pi pi-user" (click)="showBasicDialog3()" class="p-button-outlined" style="margin-left: 50px"></p-button>
+
+
+</p-dialog>
+
+<p-dialog [maximizable]="true" header="Liste partisienne " [(visible)]="displayBasic1" [style]="{width: '50vw' }" [baseZIndex]="10000">
+
+  <p-table [value]="part">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Nom</th>
+        <th>Gouvernourat</th>
+        <th>scoreList</th>
+        <th>Code List</th>
+        <th>Parti</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-candidat>
+      <tr>
+        <td>{{candidat.nom}}</td>
+        <td>{{candidat.gouvernorat}}</td>
+        <td>{{candidat.scoreList}}</td>
+        <td>{{candidat.scoreList}}</td>
+        <td *ngFor="let i of candidat.parti">{{i.nom}}</td>
+
+
+      </tr>
+    </ng-template>
+  </p-table>
+
+</p-dialog>
+
+<p-dialog [maximizable]="true" header="Liste coalision" [(visible)]="displayBasic2" [style]="{width: '50vw' }" [baseZIndex]="10000"></p-dialog>
+<p-dialog [maximizable]="true" header="Liste independante" [(visible)]="displayBasic3" [style]="{width: '50vw' }" [baseZIndex]="10000"></p-dialog>
+

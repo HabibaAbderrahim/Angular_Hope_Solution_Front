@@ -1,0 +1,65 @@
+<div class="flex">
+  <p-card  header="Candidat CV" subheader="Card Subheader" [style]="{width: '360px'}" styleClass="p-card-shadow" class="blocktext">
+    <ng-template pTemplate="header">
+      <img alt="Card" src="https://www.flaticon.com/svg/static/icons/svg/1268/1268491.svg">
+    </ng-template>
+
+    <ul *ngFor="let cv of cvs">
+    <li>
+    <span class="sp">code cv : </span> {{cv.id}}
+    </li>
+    <li>
+    <span class="sp"> score cv : </span>{{cv.scoreCv}}
+    </li>
+
+    </ul>
+
+
+
+
+    <ng-template pTemplate="footer">
+      <p-button (click)="showBasicDialog()" icon="pi pi-external-link" label="Show"></p-button>
+      <p-dialog [maximizable]="true" header="Header" [(visible)]="displayBasic" [style]="{width: '90vw'}" [baseZIndex]="10000">
+
+        <p-table [value]="activs">
+          <ng-template pTemplate="header">
+            <tr>
+              <th>code activité</th>
+              <th>Durée</th>
+              <th>description</th>
+              <th>emplacement</th>
+              <th>Titulaire</th>
+              <th>Type activité</th>
+              <th>Nombre de perssonne IN </th>
+              <th>score Activité</th>
+              <th>Justificatif</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-act>
+            <tr>
+              <td>{{act.id}}</td>
+              <td>{{act.duree}}</td>
+              <td>{{act.description}}</td>
+              <td>{{act.emplacement}}</td>
+              <td>{{act.titulaire}}</td>
+              <td>{{act.type}}</td>
+              <td>{{act.secteur}}</td>
+              <td>{{act.nombrePersonneIn}}</td>
+              <td>{{act.scoreActv}}</td>
+              <td>{{act.justificatifs}}</td>
+            </tr>
+          </ng-template>
+        </p-table>
+
+        <ng-template pTemplate="footer">
+          <p-button icon="pi pi-check" (click)="displayBasic=false" label="Ok" styleClass="p-button-text"></p-button>
+        </ng-template>
+      </p-dialog>
+    </ng-template>
+  </p-card>
+</div>
+
+
+<p-dialog header="Title" [(visible)]="display">
+  <p>ghjkl</p>
+</p-dialog>

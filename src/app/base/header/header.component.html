@@ -1,0 +1,8 @@
+<p-sidebar [(visible)]="visibleSidebar1" [baseZIndex]="10000">
+  <h1 style="font-weight:normal">Hope <br>And <br> Solution</h1>
+  <br>
+  <p-slideMenu [model]="items" [viewportHeight]="400"></p-slideMenu>
+</p-sidebar>
+
+
+<p-button type="button" (click)="visibleSidebar1 = true" icon="pi pi-arrow-right"></p-button>

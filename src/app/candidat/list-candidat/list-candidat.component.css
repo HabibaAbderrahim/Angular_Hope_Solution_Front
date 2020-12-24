@@ -1,0 +1,18 @@
+.btnAdd {
+
+  float: right;
+  margin-bottom: 10px;
+}
+
+.flex {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  justify-content: center;
+  align-items: center;
+  margin-right: 140px;
+}
+
+.flex >p-card {
+  margin-left: 80px;
+}

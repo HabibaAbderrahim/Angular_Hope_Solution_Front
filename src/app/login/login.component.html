@@ -1,0 +1,30 @@
+
+
+
+
+<!--<table>-->
+  <!--<tr>-->
+    <!--<td>Nom d'utilisateur</td>-->
+    <!--<td><input pInputText [(ngModel)]="user.username"></td>-->
+  <!--</tr>-->
+  <!--<tr>-->
+    <!--<td>Mot de passe</td>-->
+    <!--<td><input type="password" pInputText [(ngModel)]="user.password"></td>-->
+  <!--</tr>-->
+  <!--<tr>-->
+    <!--<td></td>-->
+    <!--<td><button pButton class="ui-button-success" label="connect" (click)="authenticate()"></button></td>-->
+  <!--</tr>-->
+<!--</table>-->
+
+<div class="container">
+  <div class="form">
+    <div class="header">
+      <p>Tunis (Tunis)<i class="fas fa-chevron-down"></i></p>
+      <img src="https://www.creativefabrica.com/wp-content/uploads/2020/08/24/1598253760/Hope-580x386.jpg" alt="" width="100px" height="100px">
+    </div>
+    <input placeholder="username" type="text" [(ngModel)]="user.username" spellcheck="false"><br>
+    <input class="psw" placeholder="Password" [(ngModel)]="user.password" type="password" spellcheck="false">
+    <button class="btn"  (click)="authenticate()">Log In</button>
+  </div>
+</div>

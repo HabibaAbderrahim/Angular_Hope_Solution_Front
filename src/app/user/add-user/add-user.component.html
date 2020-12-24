@@ -1,0 +1,41 @@
+<br>
+<span class="p-float-label">
+    <input  class="space" [(ngModel)]="user.nom" type="text" pInputText>
+    <label>Nom</label>
+
+</span>
+<span class="p-float-label">
+    <input  class="space" [(ngModel)]="user.prenom" type="text" pInputText>
+    <label >Prenom</label>
+</span>
+
+<span class="p-float-label">
+    <input  class="space" [(ngModel)]="user.age" type="text" pInputText>
+    <label >Age</label>
+</span>
+<span class="p-float-label">
+    <input  class="space" [(ngModel)]="user.job" type="text" pInputText>
+    <label >Job </label>
+</span>
+<span class="p-float-label pi-pi-user">
+    <input  class="space" [(ngModel)]="user.email" type="text" pInputText>
+    <label >Adresse mail</label>
+</span>
+
+<span class="p-float-label pi-pi-user">
+    <input  class="space" [(ngModel)]="user.username" type="text" pInputText>
+    <label >User name</label>
+</span>
+
+<span class="p-float-label pi-pi-user">
+    <input  class="space" pPassword [(ngModel)]="user.password" type="password" >
+    <label >Mot de passe</label>
+</span>
+
+<span class="p-float-label pi-pi-user">
+    <input  class="space" pPassword [(ngModel)]="confirmPwd"  type="password" >
+    <label >Confirmer Mot de passe</label>
+</span>
+
+<button pButton type="button" label="Ajouter " class="p-button-primary btnAdd" icon="pi pi-plus" routerLink="/candidat/candidat-new" ></button>
+
